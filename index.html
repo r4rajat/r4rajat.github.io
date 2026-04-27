@@ -1,586 +1,401 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="dark">
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-5BB8W2X');</script>
-  <!-- End Google Tag Manager -->
-  <link rel="icon" type="image/png" href="/favicon.png"/>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#0a0a0b" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
 
-  <title>Rajat Gupta | Portfolio</title>
-  <meta content="" name="descriptison">
-  <meta content="" name="keywords">
+  <title>Rajat Gupta — Developer</title>
+  <meta name="description" content="Rajat Gupta — software developer building Kubernetes-native tooling, APIs, and automation." />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="canonical" href="https://r4rajat.com/" />
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <meta property="og:title" content="Rajat Gupta — Developer" />
+  <meta property="og:description" content="Software developer building Kubernetes-native tooling, APIs, and automation." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://r4rajat.com/" />
+  <meta name="twitter:card" content="summary" />
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
 
+  <link rel="stylesheet" href="assets/css/style.css" />
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169007209-3"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-169007209-3');
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        var prefers = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.dataset.theme = stored || prefers;
+      } catch (e) {}
+    })();
   </script>
-
-
-
-  <!-- =======================================================
-  * Template Name: Personal - v2.1.0
-  * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
-
 <body>
-  
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5BB8W2X"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-  <!-- ======= Header ======= -->
-  <header id="header" class="header-tops">
+  <a href="#main" class="skip-link">Skip to main content</a>
 
-    <div class="container">
+  <header class="nav" id="top">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Home — Rajat Gupta">
+        <span class="brand-mark">RG</span>
+        <span class="brand-name">Rajat Gupta</span>
+      </a>
 
-      <h1><a href="index.html">Rajat Gupta</a></h1>
-      <h2 style="color:#fff">I'm <span class="typing" style="color:#12D640"></span></h2>
-      <nav class="nav-menu d-none d-lg-block">
+      <nav class="nav-links" aria-label="Primary">
         <ul>
-          <li class="active"><a href="#header"> <span>Home</span></a></li>
-          <li><a href="#about"><span>About</span></a></li>
-          <li><a href="#education"> <span>Education</span></a></li>
-          <li><a href="#experience"> <span>Experience</span></a></li>
-<!--          <li><a href="#projects"> <span>Projects</span></a></li>-->
-          <li><a href="#portfolio"> <span>Projects</span></a></li>
-          <li><a href="#skills"> <span>Skills</span></a></li>
-          <li><a href="https://drive.google.com/file/d/1qcCkwkZjlWz8rpJUkZlo8BwsXAiKtej1/view?usp=sharing" target="_blank"> <span>Resume</span></a></li>
-          <!-- <li><a href="#links"> <span>Resume & Links</span></a></li> -->
-          <li><a href="#contacts"> <span>Contact</span></a></li>
-
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
-      </nav><!-- .nav-menu -->
+      </nav>
 
-      <div class="social-links">
-          <a href="https://www.linkedin.com/in/rajat-gupta" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-          <a href="https://www.github.com/r4rajat" target="_blank" class="github"><i class="bx bxl-github"></i></a>
-          <a href="mailto:mahawargupta.rajat@gmail.com" target="_blank" class="google"><i class="bx bxl-google"></i></a>
+      <div class="nav-actions">
+        <button
+          type="button"
+          class="theme-toggle"
+          id="theme-toggle"
+          aria-label="Toggle color theme"
+          aria-pressed="false"
+          title="Toggle theme"
+        >
+          <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+          </svg>
+          <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+          </svg>
+        </button>
 
+        <a href="resume.pdf" class="btn btn-resume" target="_blank" rel="noopener">Résumé</a>
+
+        <button
+          type="button"
+          class="hamburger"
+          id="hamburger"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
       </div>
-
     </div>
-  </header><!-- End Header -->
 
-  <!-- ======= About Section ======= -->
-  <section id="about" class="about">
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <nav aria-label="Mobile">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <!-- ======= About Me ======= -->
-    <div class="about-me container">
-
-      <div class="section-title">
-        <h2>About</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4" data-aos="fade-right">
-          <img src="assets/img/me.jpg" class="img-fluid" alt="">
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container">
+        <p class="hero-eyebrow">Hi, I'm</p>
+        <h1 id="hero-title" class="hero-name">Rajat Gupta</h1>
+        <p class="hero-role">
+          <span class="hero-role-prefix">a&nbsp;</span><span class="rotating" id="rotating-role" aria-live="polite">Developer</span>
+        </p>
+        <p class="hero-intro">
+          Focused on software development and Kubernetes — building tooling, APIs, and
+          automation that solves real-world problems.
+        </p>
+        <div class="hero-cta">
+          <a href="resume.pdf" class="btn btn-primary" target="_blank" rel="noopener">Read my résumé</a>
+          <a href="#contact" class="btn btn-secondary">Get in touch</a>
         </div>
-        <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-          <p>Focused and enthusiastic developer with a keen interest in Software Development and Kubernetes Development. By comprehensive exposure
-            to the underlying concepts and applying them vividly to various projects, my love for these domains came into being.
-            I am a passionate individual who thrives to build and apply solutions for real-world industry problems.
+      </div>
+    </section>
+
+    <section id="about" class="section reveal" aria-labelledby="about-title">
+      <div class="container container-narrow">
+        <p class="section-eyebrow">01 — About</p>
+        <h2 id="about-title" class="section-title">A little about me</h2>
+        <div class="prose">
+          <p>
+            Focused and enthusiastic developer with a keen interest in software development
+            and Kubernetes. Through deep exposure to the underlying concepts and applying
+            them across various projects, my love for these domains has only grown. I'm a
+            passionate individual who thrives on building and applying solutions to
+            real-world industry problems.
           </p>
-          <div class="row">
-            <div class="col-lg-6">
-              <ul>
-                <li><i class="icofont-rounded-right"></i> <strong>Birthday:</strong> 17 March 1998</li>
-                <li><i class="icofont-rounded-right"></i> <strong>Phone:</strong> +91 7508415858</li>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section reveal" aria-labelledby="experience-title">
+      <div class="container">
+        <p class="section-eyebrow">02 — Experience</p>
+        <h2 id="experience-title" class="section-title">Where I've worked</h2>
+
+        <ol class="timeline">
+          <li class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-role">
+                Product Engineer
+                <span class="timeline-at">at</span>
+                <a href="https://www.infracloud.io/" target="_blank" rel="noopener" class="timeline-company">InfraCloud Technologies</a>
+              </h3>
+              <p class="timeline-meta">May 2022 — Present</p>
+              <ul class="timeline-bullets">
+                <li>Building controllers for Kubernetes-driven applications.</li>
+                <li>Contributing to open source.</li>
+                <li>Writing clean, well-tested code across multiple projects.</li>
               </ul>
             </div>
-            <div class="col-lg-6">
-              <ul>
-                <li><i class="icofont-rounded-right"></i> <strong>City:</strong> Alwar, Rajasthan, India</li>
-                <li><i class="icofont-rounded-right"></i> <strong>Email:</strong> mahawargupta.rajat@gmail.com</li>
+          </li>
+
+          <li class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-role">
+                Senior Software Engineer
+                <span class="timeline-at">at</span>
+                <a href="https://www.apisero.com/" target="_blank" rel="noopener" class="timeline-company">Apisero Inc.</a>
+              </h3>
+              <p class="timeline-meta">Aug 2021 — May 2022</p>
+              <ul class="timeline-bullets">
+                <li>Designed high-quality, resilient APIs using MuleSoft.</li>
+                <li>Implemented Runtime Fabric variations on AWS EKS.</li>
               </ul>
             </div>
+          </li>
+
+          <li class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-role">
+                Software Engineer
+                <span class="timeline-at">at</span>
+                <a href="https://www.gslab.com/" target="_blank" rel="noopener" class="timeline-company">Great Software Laboratory</a>
+              </h3>
+              <p class="timeline-meta">Sept 2020 — Aug 2021</p>
+              <ul class="timeline-bullets">
+                <li>Wrote high-quality code with thorough tests and documentation.</li>
+                <li>Shipped apps on Docker; deployed to Kubernetes and OpenShift.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="timeline-item">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <h3 class="timeline-role">
+                Software Development Intern
+                <span class="timeline-at">at</span>
+                <a href="https://www.gslab.com/" target="_blank" rel="noopener" class="timeline-company">Great Software Laboratory</a>
+              </h3>
+              <p class="timeline-meta">Aug 2019 — Sept 2020</p>
+              <ul class="timeline-bullets">
+                <li>Hands-on learning across a range of technologies.</li>
+                <li>Wrote clean, well-tested code for internal projects.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="projects" class="section reveal" aria-labelledby="projects-title">
+      <div class="container">
+        <p class="section-eyebrow">03 — Projects</p>
+        <h2 id="projects-title" class="section-title">Things I've built</h2>
+
+        <div class="filters" role="tablist" aria-label="Filter projects">
+          <button class="filter-chip is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="filter-chip" data-filter="python" role="tab" aria-selected="false">Python</button>
+          <button class="filter-chip" data-filter="golang" role="tab" aria-selected="false">Golang</button>
+          <button class="filter-chip" data-filter="rpa" role="tab" aria-selected="false">RPA</button>
+        </div>
+
+        <div class="project-grid" id="project-grid">
+          <!-- rendered by main.js -->
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section reveal" aria-labelledby="skills-title">
+      <div class="container">
+        <p class="section-eyebrow">04 — Skills</p>
+        <h2 id="skills-title" class="section-title">Tools of the trade</h2>
+
+        <div class="skill-groups">
+          <div class="skill-group">
+            <h3>Languages &amp; Databases</h3>
+            <ul class="pills" aria-label="Languages and databases">
+              <li>Python</li>
+              <li>Golang</li>
+              <li>MongoDB</li>
+              <li>MySQL</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Frameworks</h3>
+            <ul class="pills" aria-label="Frameworks">
+              <li>Kubernetes client-go</li>
+              <li>Flask</li>
+              <li>FastAPI</li>
+              <li>Django</li>
+              <li>Jinja</li>
+              <li>Node.js</li>
+              <li>Robot Framework</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Tools &amp; Technology</h3>
+            <ul class="pills" aria-label="Tools and technology">
+              <li>Git</li>
+              <li>Docker</li>
+              <li>Kubernetes</li>
+              <li>MuleSoft</li>
+              <li>Codefresh</li>
+              <li>Jenkins</li>
+              <li>AWS</li>
+              <li>DigitalOcean</li>
+              <li>Google Cloud</li>
+              <li>Azure</li>
+              <li>Ansible</li>
+              <li>Blue Prism</li>
+              <li>Jira</li>
+              <li>JetBrains</li>
+            </ul>
           </div>
         </div>
       </div>
+    </section>
 
-    </div><!-- End About Me -->
+    <section id="education" class="section reveal" aria-labelledby="education-title">
+      <div class="container">
+        <p class="section-eyebrow">05 — Education</p>
+        <h2 id="education-title" class="section-title">Where I studied</h2>
 
-    <!-- ======= Interests ======= -->
-    <div class="interests container">
-
-      <div class="section-title">
-        <h2>Interests</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-3 col-md-4">
-          <div class="icon-box">
-            <i class="ri-global-line" style="color: #ffbb2c;"></i>
-            <h3>Software Development</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <i class="ri-share-box-line" style="color: #5578ff;"></i>
-            <h3>API Development</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <i class="ri-server-fill" style="color: #e80368;"></i>
-            <h3>Kubernetes</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-          <div class="icon-box">
-            <i class="ri-robot-fill" style="color: #e80368;"></i>
-            <h3>Robotic Process Automation</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-cloud-line" style="color: #1c7d32;"></i>
-            <h3>Cloud</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-code-s-slash-fill" style="color: #28a745;"></i>
-            <h3>Software Engineering</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mt-4">
-          <div class="icon-box">
-            <i class="ri-bar-chart-box-line" style="color: #f1081f;"></i>
-            <h3>Virtualization</h3>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- End Interests -->
-  </section><!-- End About Section -->
-
-
-
-  <!-- ======= Education Section ======= -->
-  <section id="education" class="services">
-    <div class="container">
-      <div class="section-title">
-        <h2>Education</h2>
-      </div>
-      <div class="row">
-        <div class="col-lg-12" data-aos="fade-up" style="display: inline-block;">
-
-
-            <div class="col-md-4 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100" style="padding:0px 0px;padding-bottom: 5px;display: inline-block;">
-              <img src="assets/img/education/lpu.png" class="img-fluid" alt="">
-              <!-- <h4 style="text-align:left;"><a href="https://www.asu.edu/" target="_blank" style="color:#12d640">Arizona State University</a><br> </h4> -->
-              <p style="text-align:left;color:#fff;padding: 5px 10px;"><em>B.Tech.(Hons.) Computer Science</em></p>
-              <h5 style="text-align:left;padding: 0px 10px;">August 2016 - July - 2020</h5>
-              <h6 style="text-align:left;color:#fff;padding: 0px 10px;">Relevant Coursework</h6>
-              <ul style="text-align:left;color:#fff;">
+        <div class="edu-layout">
+          <article class="edu-card">
+            <div class="edu-school">
+              <img src="assets/img/education/lpu.png" alt="" class="edu-logo" loading="lazy" width="48" height="48" />
+              <div>
+                <h3>Lovely Professional University</h3>
+                <p class="edu-degree">B.Tech (Hons.) — Computer Science</p>
+                <p class="edu-meta">August 2016 — July 2020</p>
+              </div>
+            </div>
+            <div class="edu-coursework">
+              <h4>Relevant coursework</h4>
+              <ul class="pills pills-sm">
                 <li>Database Systems</li>
                 <li>Cloud Computing</li>
-                <li>Foundation Of Algorithms</li>
+                <li>Foundation of Algorithms</li>
                 <li>Machine Learning</li>
                 <li>Digital Marketing</li>
               </ul>
             </div>
+          </article>
+
+          <div class="cert-stack">
+            <h3 class="cert-stack-title">Certifications</h3>
+
+            <a class="cert-card" href="https://drive.google.com/file/d/1PmBRNFKjfWhNKDuli8FHgayd4tFiwwfh/view?usp=sharing" target="_blank" rel="noopener">
+              <div class="cert-card-content">
+                <p class="cert-name">MuleSoft Certified Developer — Level 1</p>
+                <p class="cert-issuer">MuleSoft</p>
+              </div>
+              <span class="cert-arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a class="cert-card" href="https://coursera.org/share/fc73cfcd6e876f75f719c4027d8e59b1" target="_blank" rel="noopener">
+              <div class="cert-card-content">
+                <p class="cert-name">Getting Started with Go</p>
+                <p class="cert-issuer">Coursera · UC Irvine</p>
+              </div>
+              <span class="cert-arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a class="cert-card" href="https://www.efset.org/cert/aEbEyP" target="_blank" rel="noopener">
+              <div class="cert-card-content">
+                <p class="cert-name">Standardized English Test (EFSET)</p>
+                <p class="cert-issuer">EF Education First</p>
+              </div>
+              <span class="cert-arrow" aria-hidden="true">↗</span>
+            </a>
           </div>
         </div>
       </div>
+    </section>
 
+    <section id="contact" class="section reveal" aria-labelledby="contact-title">
+      <div class="container container-narrow contact-block">
+        <p class="section-eyebrow">06 — Contact</p>
+        <h2 id="contact-title" class="section-title">Let's talk</h2>
+        <p class="contact-lede">
+          Open to interesting problems, collaborations, and good coffee. The fastest way
+          to reach me is below.
+        </p>
 
-    <div class="portfolio">
-    <div class="container">
-      <div class="section-title">
-        <h2>Online Certification</h2>
+        <div class="contact-buttons">
+          <a class="contact-btn" href="https://www.linkedin.com/in/rajat-gupta" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 4h4v4H4zM4 10h4v10H4zM10 10h4v2c.7-1.3 2.2-2.3 4-2.3 3 0 4 2 4 4.5V20h-4v-5c0-1.4-.5-2.3-1.8-2.3S14 13.5 14 15v5h-4z"/>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="contact-btn" href="https://github.com/r4rajat" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.12-1.47-1.12-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.04 1.53 1.04.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.55 9.55 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0012 2z"/>
+            </svg>
+            <span>GitHub</span>
+          </a>
+          <a class="contact-btn" href="mailto:hello@r4rajat.com" aria-label="Email">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 5h18a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1zm1 2v.4l8 5.1 8-5.1V7H4zm16 2.4l-7.5 4.8a1 1 0 01-1 0L4 9.4V17h16V9.4z"/>
+            </svg>
+            <span>Email</span>
+          </a>
+        </div>
       </div>
+    </section>
+  </main>
 
-      <div class="row portfolio-container" style="position: relative; height: 437.75px;">
-
-         <div class="col-lg-4 col-md-6 portfolio-item filter-app" style="position: absolute; left: 0px; top: 0px;">
-          <div class="portfolio-wrap">
-            <img src="https://www.mulesoft.com/sites/default/files/cmm_files/image_mulesoft_logo_og.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Mulesoft Certified Developer - L1</h4>
-              <div class="portfolio-links">
-                <a href="https://drive.google.com/file/d/1PmBRNFKjfWhNKDuli8FHgayd4tFiwwfh/view?usp=sharing" target="_blank" title="Certificate"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-           </div>
-          </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app" style="position: absolute; left: 370px; top: 0px;">
-          <div class="portfolio-wrap">
-            <img src="https://www.pngitem.com/pimgs/m/312-3126568_uci-logo-png-transparent-png.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Getting Stared with Go</h4>
-              <div class="portfolio-links">
-                <a href="https://coursera.org/share/fc73cfcd6e876f75f719c4027d8e59b1" target="_blank" title="Certificate"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app" style="position: absolute; left: 740px; top: 0px;">
-          <div class="portfolio-wrap">
-            <img src="assets/img/education/efset.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Standardized English Test</h4>
-              <div class="portfolio-links">
-                <a href="https://www.efset.org/cert/aEbEyP" target="_blank" title="Certificate"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">© <span id="year">2026</span> Rajat Gupta</p>
+      <div class="footer-socials" aria-label="Social links">
+        <a href="https://www.linkedin.com/in/rajat-gupta" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h4v4H4zM4 10h4v10H4zM10 10h4v2c.7-1.3 2.2-2.3 4-2.3 3 0 4 2 4 4.5V20h-4v-5c0-1.4-.5-2.3-1.8-2.3S14 13.5 14 15v5h-4z"/></svg>
+        </a>
+        <a href="https://github.com/r4rajat" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.12-1.47-1.12-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.04 1.53 1.04.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.55 9.55 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0012 2z"/></svg>
+        </a>
+        <a href="mailto:hello@r4rajat.com" aria-label="Email">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1zm1 2v.4l8 5.1 8-5.1V7H4zm16 2.4l-7.5 4.8a1 1 0 01-1 0L4 9.4V17h16V9.4z"/></svg>
+        </a>
       </div>
     </div>
-    </div>
+  </footer>
 
-  </section>
-  <!-- End Education Section -->
-
-
-
-  <!-- Start Experience Section -->
-
-  <section id="experience" class="services">
-    <div class="container">
-      <div class="section-title">
-        <h2>Experience</h2>
-      </div>
-      <div class="row">
-          <div class="col-lg-12" data-aos="fade-up">
-              <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
-                <h4 style="text-align:left;"><a href="https://www.asu.edu/" style="color:#12d640">InfraCloud Technologies Pvt. Ltd.</a><br> </h4>
-                <h5 style="text-align:left;">May 2022 - Present</h5>
-                <p style="text-align:left;color:#fff"><em>Product Engineer </em></p>
-                <ul style="text-align:left;">
-                  <li>Developing Controllers for Kubernetes Driven Applications.</li>
-                  <li>Various contributions to Opensource.</li>
-                  <li>Writing clean and well tested code for various Projects.</li>
-                </ul>
-              </div>
-              <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
-                <h4 style="text-align:left;"><a href="https://www.augmenify.com/" style="color:#12d640">Apisero Inc.</a><br> </h4>
-                <h5 style="text-align:left;">Aug 2021 - May 2022</h5>
-                <p style="text-align:left;color:#fff"><em>Senior Software Engineer</em></p>
-                <ul style="text-align:left;">
-                  <li>Create High Quality and Resilient APIs using Mulesoft.</li>
-                  <li>Implemented Runtime Fabric with variations on AWS EKS.</li>
-                </ul>
-              </div>
-              <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
-                <h4 style="text-align:left;"><a href="https://www.epitomesolutions.in/" style="color:#12d640">Great Software Laboratory Pvt. Ltd.</a><br> </h4>
-                <h5 style="text-align:left;">Sept 2020 - Aug 2021</h5>
-                <p style="text-align:left;color:#fff"><em>Software Engineer</em></p>
-                <ul style="text-align:left;">
-                  <li>Writing High Quality Code and Automation with testcases and Documentation.</li>
-                  <li>Shipping Apps on Docker and Deployment on Kubernetes. OpenShift etc.</li>
-                </ul>
-              </div>
-              <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
-                <h4 style="text-align:left;"><a href="https://www.meditab.com/" target="_blank" style="color:#12d640">Great Software Laboratory Pvt. Ltd.</a><br> </h4>
-                <h5 style="text-align:left;">Aug 2019 - Sept 2020</h5>
-                <p style="text-align:left;color:#fff"><em>Software Development Intern</em></p>
-                <ul style="text-align:left;">
-                  <li>Learning and hands-on for various technologies. </li>
-                  <li>Writing Clean, well tested code for various internal projects.</li>
-                </ul>
-              </div>
-          </div>
-        </div>
-    </div>
-  </section>
-
-  <!-- End Experience Section -->
-
-
-
-  <!-- Start Project Section -->
-  <section id="portfolio" class="portfolio">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Projects</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-12 d-flex justify-content-center">
-          <ul id="portfolio-flters">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-python">Python Based</li>
-            <li data-filter=".filter-golang">Golang Based</li>
-            <li data-filter=".filter-rpa">RPA Based</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="row portfolio-container">
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-golang">
-          <center><h4>Kanister</h4></center>
-          <div class="portfolio-wrap">
-            <img src="https://kanister.io/kanister_thumbnail.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              
-              <div class="portfolio-links">
-                <a href="projects/kanister.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Project Details"><i class="bx bx-info-circle"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-golang">
-          <center><h4>Backstore</h4></center>
-          <div class="portfolio-wrap">
-            <img src="assets/img/project/iras.jpeg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              
-              <div class="portfolio-links">
-                <a href="projects/backstore.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Project Details"><i class="bx bx-info-circle"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-python">
-          <center><h4>URL Shortener Backend</h4></center>
-          <div class="portfolio-wrap">
-            <img src="assets/img/project/ml.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              
-              <div class="portfolio-links">
-                <a href="projects/url_shortener_backend.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Project Details"><i class="bx bx-info-circle"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-golang">
-          <center><h4>Netpolmgr</h4></center>
-          <div class="portfolio-wrap">
-            <img src="assets/img/project/vdg.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              
-              <div class="portfolio-links">
-                <a href="projects/netpolmgr.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Project Details"><i class="bx bx-info-circle"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-rpa">
-          <center><h4>Robot Framework Demo</h4></center>
-          <div class="portfolio-wrap">
-            <img src="assets/img/project/gan.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-
-              <div class="portfolio-links">
-                <a href="projects/robot-framework-demo.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Project Details"><i class="bx bx-info-circle"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- End Project Section -->
-
-
-
-  <!-- Start Skills Section -->
-
-  <section id="skills" class="services">
-    <div class="container">
-      <div class="section-title">
-        <h2>Skills</h2>
-      </div>
-      <div class="row">
-        <div class="col-lg-12" data-aos="fade-up">
-          <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100" style="background:#fff">
-            <h4 style="text-align:left;color:#09203a">Languages and Databases</h4>
-                <p style="text-align:left;">
-                  <img src="https://www.vectorlogo.zone/logos/python/python-horizontal.svg" alt="vectorlogo.zone" height="50" width="150">
-                  <img src="https://www.vectorlogo.zone/logos/golang/golang-ar21.svg" alt="vectorlogo.zone" height="50" width="120">
-                  <img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-ar21.svg" alt="vectorlogo.zone" height="90" width="190">
-                  <img src="https://www.vectorlogo.zone/logos/mysql/mysql-horizontal.svg" alt="vectorlogo.zone" height="70" width="130">
-                </p>
-            </div>
-            <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="lefade-up" data-aos-delay="100" style="background:#fff">
-              <h4 style="text-align:left;color:#09203a">Frameworks</h4>
-                <p style="text-align:left;">
-                  <img src="https://opengraph.githubassets.com/83ad9f0439b09b14c723845d3e6ccb616f34fd5f929dde9409b432dc640196af/kubernetes/client-go" alt="github.com" height="120" width="200">
-                  <img src="https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-ar21.svg" alt="vectorlogo.zone">
-                  <img src="https://upload.wikimedia.org/wikiversity/en/8/8c/FastAPI_logo.png" alt="upload.wikimedia" height="50" width="120">
-                  <img src="https://www.vectorlogo.zone/logos/djangoproject/djangoproject-ar21.svg" alt="vectorlogo.zone">
-                  <img src="https://www.vectorlogo.zone/logos/pocoo_jinja/pocoo_jinja-ar21.svg" alt="vectorlogo.zone">
-                  <img src="https://www.vectorlogo.zone/logos/nodejs/nodejs-horizontal.svg" alt="vectorlogo.zone">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Robot-framework-logo.png" alt="vectorlogo.zone" height="90" width="90">
-              </p>
-          </div>
-          <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="lefade-up" data-aos-delay="100" style="background:#fff">
-              <h4 style="text-align:left;color:#09203a">Tools and Technology</h4>
-                <p style="text-align:left;">
-                  <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-ar21.svg" alt="vectorlogo.zone">
-                  <img src="https://www.vectorlogo.zone/logos/docker/docker-ar21.svg" alt="vectorlogo.zone">
-                  <img src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-ar21.svg" alt="vectorlogo.zone">
-                  <img src="https://www.vectorlogo.zone/logos/mulesoft/mulesoft-ar21.svg" alt="vectorlogo.zone">
-                  <img src="https://www.vectorlogo.zone/logos/codefreshio/codefreshio-ar21.svg" alt="vectorlogo.zone">
-                  <img src="https://www.vectorlogo.zone/logos/jenkins/jenkins-ar21.svg" alt="vectorlogo.zone">
-                  <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-ar21.svg" alt="vectorlogo.zone">
-                  <img src="https://www.vectorlogo.zone/logos/digitalocean/digitalocean-ar21.svg" alt="vectorlogo.zone">
-                  <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-ar21.svg" alt="vectorlogo.zone">
-                  <img src="https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-ar21.svg" alt="vectorlogo.zone">
-                  <img src="https://www.vectorlogo.zone/logos/ansible/ansible-ar21.svg" alt="vectorlogo.zone">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Blue_Prism_logo.svg" alt="upload.wikimedia" height="50" width="130">
-                  <img src="https://www.vectorlogo.zone/logos/atlassian_jira/atlassian_jira-ar21.svg" alt="vectorlogo.zone">
-                  <img src="https://www.vectorlogo.zone/logos/jetbrains/jetbrains-ar21.svg" alt="vectorlogo.zone">
-              </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- End Skills Section -->
-
-
-
-
-  <!-- Start Links section -->
-  <section id="links" class="services">
-    <div class="container">
-      <div class="section-title">
-        <h2>Resume & Links</h2>
-      </div>
-      <div class="row">
-        <div class="col-md-3 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
-          <a href="https://drive.google.com/file/d/1-oUat_-gWqmAH7bEjgjdJHUI9k9e_BxA/view?usp=sharing" target="_blank"><div class="icon"><i class="icofont-page"></i></div></a>
-          <h4 class="title"><a href="https://drive.google.com/file/d/1qcCkwkZjlWz8rpJUkZlo8BwsXAiKtej1/view?usp=sharing" target="_blank">Resume</a></h4>
-          <p class="description" style="color:#fff;">The link contains downloadable resume</p>
-        </div>
-        <div class="col-md-3 mt-4 mt-md-0 icon-box" data-aos="fade-up">
-          <a href="https://github.com/rajaprerak/LeetCode_Problems" target="_blank"><div class="icon"><i class="icofont-link"></i></div></a>
-          <h4 class="title"><a href="https://github.com/rajaprerak/LeetCode_Problems" target="_blank">LeetCode Repository</a></h4>
-          <p class="description" style="color:#fff;"> The github repository contains leetcode problems solution in python.</p>
-        </div>
-        <!-- <div class="col-md-3 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
-          <a href="https://techingenious.herokuapp.com/" target="_blank"><div class="icon"><i class="icofont-page"></i></div></a>
-          <h4 class="title"><a href="https://techingenious.herokuapp.com/" target="_blank">Blog</a></h4>
-          <p class="description" style="color:#fff;">Blog containing articles on AI, coding, development</p>
-        </div> -->
-      </div>
-    </div>
-  </section> <!--End Links Section -->
-
-
-  <!-- Start Contact Section -->
-
-  <section id="contacts" class="contact">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Contact</h2>
-      </div>
-
-      <div class="row mt-2">
-
-        <div class="col-md-6 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-map"></i>
-            <h3>My Address</h3>
-            <p>Behind Arjun Hospital, Ward No. 33</p>
-            <p>Anand Nagar Colony, Khiarthal</p>
-            <p>Alwar, Rajasthan - 301404</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-share-alt"></i>
-            <h3>Social Profiles</h3>
-            <div class="social-links">
-              <a href="https://www.linkedin.com/in/rajat-gupta" target="_blank" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-              <a href="https://www.github.com/r4rajat" target="_blank" class="github"><i class="bx bxl-github"></i></a>
-              <a href="mailto:mahawargupta.rajat@gmail.com" target="_blank" class="google"><i class="bx bxl-google"></i></a>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-envelope"></i>
-            <h3>Email</h3>
-            <p>mahawargupta.rajat@gmail.com</p>
-          </div>
-        </div>
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-phone-call"></i>
-            <h3>Contact</h3>
-            <p>+91 7508415858</p>
-          </div>
-        </div>
-      </div>
-      <!-- <div id="sfczmlqxr5caww28rswrt8849ghbekgnh3j" ></div><script type="text/javascript" src="https://counter1.stat.ovh/private/counter.js?c=zmlqxr5caww28rswrt8849ghbekgnh3j&down=async" async></script><noscript><a href="https://www.freecounterstat.com" title="free web counter"><img src="https://counter1.stat.ovh/private/freecounterstat.php?c=zmlqxr5caww28rswrt8849ghbekgnh3j" border="0" title="free web counter" alt="free web counter" style="visibility: none;"></a></noscript> -->
-    </div>
-  </section>
-
-  <!-- End Contact Section -->
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/jquery/jquery.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-  <script src="assets/vendor/counterup/counterup.min.js"></script>
-  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/venobox/venobox.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script type="text/javascript">
-    var typed = new Typed('.typing',{
-      strings: ["Developer", "Gopher", "k8s Enthusiast", "RPA Enthusiast"],
-      loop: true,
-      typeSpeed: 65,
-      backSpeed: 65
-    });
-  </script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+  <script src="assets/js/projects.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
-
 </html>
