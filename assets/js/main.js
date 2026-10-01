@@ -4,13 +4,35 @@
   const docEl = document.documentElement;
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  const createStatus = (id) => {
+    const status = document.createElement('span');
+    status.id = id;
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+    status.style.position = 'absolute';
+    status.style.width = '1px';
+    status.style.height = '1px';
+    status.style.padding = '0';
+    status.style.margin = '-1px';
+    status.style.overflow = 'hidden';
+    status.style.clip = 'rect(0, 0, 0, 0)';
+    status.style.whiteSpace = 'nowrap';
+    status.style.border = '0';
+    document.body.appendChild(status);
+    return status;
+  };
+
   /* -----------------------------------------------------------------------
      Theme toggle
      -----------------------------------------------------------------------*/
   const themeToggle = document.getElementById('theme-toggle');
   if (themeToggle) {
+    const themeStatus = createStatus('theme-status');
     const setPressed = () => {
-      themeToggle.setAttribute('aria-pressed', docEl.dataset.theme === 'light' ? 'true' : 'false');
+      const isLight = docEl.dataset.theme === 'light';
+      themeToggle.setAttribute('aria-pressed', isLight ? 'true' : 'false');
+      themeToggle.setAttribute('aria-label', `Switch to ${isLight ? 'dark' : 'light'} theme`);
+      themeToggle.title = `Switch to ${isLight ? 'dark' : 'light'} theme`;
     };
     setPressed();
 
@@ -19,6 +41,7 @@
       docEl.dataset.theme = next;
       try { localStorage.setItem('theme', next); } catch (e) {}
       setPressed();
+      themeStatus.textContent = `${next[0].toUpperCase()}${next.slice(1)} theme enabled.`;
     });
   }
 
@@ -46,11 +69,14 @@
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
   if (hamburger && mobileMenu) {
+    const menuLinks = Array.from(mobileMenu.querySelectorAll('a'));
+
     const closeMenu = () => {
       hamburger.classList.remove('is-open');
       hamburger.setAttribute('aria-expanded', 'false');
       hamburger.setAttribute('aria-label', 'Open menu');
       mobileMenu.hidden = true;
+      mobileMenu.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
     };
     const openMenu = () => {
@@ -58,14 +84,39 @@
       hamburger.setAttribute('aria-expanded', 'true');
       hamburger.setAttribute('aria-label', 'Close menu');
       mobileMenu.hidden = false;
+      mobileMenu.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      if (menuLinks[0]) menuLinks[0].focus();
     };
+    const closeAndRestoreFocus = () => {
+      closeMenu();
+      // Returning to the trigger prevents focus from disappearing after Escape
+      // or after activating a mobile navigation link.
+      hamburger.focus();
+    };
+
+    closeMenu();
     hamburger.addEventListener('click', () => {
-      mobileMenu.hidden ? openMenu() : closeMenu();
+      mobileMenu.hidden ? openMenu() : closeAndRestoreFocus();
     });
-    mobileMenu.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
+    menuLinks.forEach((a) => a.addEventListener('click', closeAndRestoreFocus));
+    mobileMenu.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab' || menuLinks.length < 2) return;
+      const first = menuLinks[0];
+      const last = menuLinks[menuLinks.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !mobileMenu.hidden) closeMenu();
+      if (e.key === 'Escape' && !mobileMenu.hidden) {
+        e.preventDefault();
+        closeAndRestoreFocus();
+      }
     });
   }
 
@@ -74,30 +125,41 @@
      -----------------------------------------------------------------------*/
   const ROLES = ['Developer', 'Gopher', 'k8s Enthusiast', 'RPA Enthusiast'];
   const rotatingEl = document.getElementById('rotating-role');
-  if (rotatingEl && !reduced) {
-    let roleIdx = 0;
-    let charIdx = 0;
-    let deleting = false;
+  if (rotatingEl) {
+    // The animated text changes one character at a time. Keep that visual
+    // treatment out of the accessibility tree and announce each finished role
+    // once instead of producing a stream of live-region updates.
+    rotatingEl.removeAttribute('aria-live');
+    if (!reduced) {
+      rotatingEl.setAttribute('aria-hidden', 'true');
+      const roleStatus = createStatus('rotating-role-status');
+      roleStatus.textContent = ROLES[0];
 
-    const tick = () => {
-      const word = ROLES[roleIdx];
-      if (!deleting) {
-        rotatingEl.textContent = word.slice(0, ++charIdx);
-        if (charIdx === word.length) {
-          deleting = true;
-          return setTimeout(tick, 1800);
+      let roleIdx = 0;
+      let charIdx = 0;
+      let deleting = false;
+
+      const tick = () => {
+        const word = ROLES[roleIdx];
+        if (!deleting) {
+          rotatingEl.textContent = word.slice(0, ++charIdx);
+          if (charIdx === word.length) {
+            roleStatus.textContent = word;
+            deleting = true;
+            return setTimeout(tick, 1800);
+          }
+        } else {
+          rotatingEl.textContent = word.slice(0, --charIdx);
+          if (charIdx === 0) {
+            deleting = false;
+            roleIdx = (roleIdx + 1) % ROLES.length;
+            return setTimeout(tick, 240);
+          }
         }
-      } else {
-        rotatingEl.textContent = word.slice(0, --charIdx);
-        if (charIdx === 0) {
-          deleting = false;
-          roleIdx = (roleIdx + 1) % ROLES.length;
-          return setTimeout(tick, 240);
-        }
-      }
-      setTimeout(tick, deleting ? 40 : 90);
-    };
-    tick();
+        setTimeout(tick, deleting ? 40 : 90);
+      };
+      tick();
+    }
   }
 
   /* -----------------------------------------------------------------------
@@ -147,6 +209,7 @@
           class="project-card"
           data-filters="${escapeHtml(filterAttr)}"
           aria-expanded="false"
+          tabindex="0"
           aria-labelledby="proj-${escapeHtml(p.id)}-title"
         >
           <header class="project-head">
@@ -155,6 +218,8 @@
               type="button"
               class="project-toggle"
               aria-label="Show details for ${escapeHtml(p.title)}"
+              aria-expanded="false"
+              aria-controls="proj-${escapeHtml(p.id)}-details"
               data-project-toggle
             >
               <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
@@ -162,7 +227,7 @@
           </header>
           <p class="project-blurb">${escapeHtml(p.blurb)}</p>
           <ul class="project-tech">${techHtml}</ul>
-          <div class="project-details">
+          <div class="project-details" id="proj-${escapeHtml(p.id)}-details" aria-hidden="true" inert>
             <div>
               <div class="project-body">
                 ${bodyHtml}
@@ -178,14 +243,38 @@
 
     projectGrid.innerHTML = projects.map(cardHtml).join('');
 
-    /* Expand / collapse */
-    projectGrid.addEventListener('click', (e) => {
-      const card = e.target.closest('.project-card');
-      if (!card) return;
-      // Allow clicks on inner links to behave normally
-      if (e.target.closest('a')) return;
+    const focusableSelector = 'a, button, input, select, textarea, [tabindex]';
+    const setDetailsState = (card, expanded) => {
+      const details = card.querySelector('.project-details');
+      const btn = card.querySelector('[data-project-toggle]');
+      if (!details || !btn) return;
+
+      card.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      details.setAttribute('aria-hidden', expanded ? 'false' : 'true');
+      details.toggleAttribute('inert', !expanded);
+      details.inert = !expanded;
+
+      // `inert` is supported by current browsers; temporarily removing tab
+      // stops makes the collapsed state safe in older browsers too.
+      details.querySelectorAll(focusableSelector).forEach((el) => {
+        if (!expanded) {
+          if (!el.hasAttribute('data-project-tabindex')) {
+            el.setAttribute('data-project-tabindex', el.getAttribute('tabindex') || '');
+          }
+          el.setAttribute('tabindex', '-1');
+        } else if (el.hasAttribute('data-project-tabindex')) {
+          const previous = el.getAttribute('data-project-tabindex');
+          if (previous) el.setAttribute('tabindex', previous);
+          else el.removeAttribute('tabindex');
+          el.removeAttribute('data-project-tabindex');
+        }
+      });
+    };
+
+    const toggleCard = (card) => {
       const expanded = card.getAttribute('aria-expanded') === 'true';
-      card.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      setDetailsState(card, !expanded);
       const btn = card.querySelector('[data-project-toggle]');
       const titleEl = card.querySelector('.project-title');
       if (btn && titleEl) {
@@ -194,6 +283,24 @@
           (expanded ? 'Show' : 'Hide') + ' details for ' + titleEl.textContent
         );
       }
+    };
+
+    projectGrid.querySelectorAll('.project-card').forEach((card) => setDetailsState(card, false));
+
+    /* Expand / collapse */
+    projectGrid.addEventListener('click', (e) => {
+      const card = e.target.closest('.project-card');
+      if (!card) return;
+      // Allow clicks on inner links to behave normally
+      if (e.target.closest('a')) return;
+      toggleCard(card);
+    });
+
+    projectGrid.addEventListener('keydown', (e) => {
+      const card = e.target.closest('.project-card');
+      if (!card || e.target !== card || (e.key !== 'Enter' && e.key !== ' ')) return;
+      e.preventDefault();
+      toggleCard(card);
     });
 
     /* Filter chips */
@@ -216,27 +323,35 @@
   }
 
   /* -----------------------------------------------------------------------
-     Active section highlight in nav (desktop)
+     Active section highlight in nav
      -----------------------------------------------------------------------*/
-  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-  if (navLinks.length && 'IntersectionObserver' in window) {
-    const linkMap = new Map();
-    navLinks.forEach((a) => linkMap.set(a.getAttribute('href').slice(1), a));
+  const navLinks = document.querySelectorAll(
+    '.nav-links a[href^="#"], .mobile-menu a[href^="#"]',
+  );
+  const sections = Array.from(document.querySelectorAll('main section[id]'));
+  if (navLinks.length && sections.length) {
+    const setActiveSection = (activeId) => {
+      navLinks.forEach((link) => {
+        const isActive = link.getAttribute('href').slice(1) === activeId;
+        link.style.color = isActive ? 'var(--text)' : '';
+        if (isActive) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+      });
+    };
 
-    const sectionIo = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const link = linkMap.get(entry.target.id);
-          if (!link) return;
-          if (entry.isIntersecting) {
-            navLinks.forEach((a) => a.style.color = '');
-            link.style.color = 'var(--text)';
-          }
-        });
-      },
-      { rootMargin: '-40% 0px -55% 0px' },
-    );
+    const updateActiveSection = () => {
+      const scrollMarker = window.scrollY + (nav ? nav.offsetHeight : 0) + 24;
+      let activeId = '';
+      sections.forEach((section) => {
+        const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+        if (sectionTop <= scrollMarker) activeId = section.id;
+      });
+      setActiveSection(activeId);
+    };
 
-    document.querySelectorAll('main section[id]').forEach((s) => sectionIo.observe(s));
+    updateActiveSection();
+    window.addEventListener('scroll', updateActiveSection, { passive: true });
+    window.addEventListener('resize', updateActiveSection, { passive: true });
+    window.addEventListener('hashchange', updateActiveSection);
   }
 })();
